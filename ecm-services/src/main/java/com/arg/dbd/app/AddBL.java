@@ -46,6 +46,7 @@ import org.hibernate.criterion.Restrictions;
  */
 public class AddBL {
     private static Log LOG = LogFactory.getLog(AddBL.class);
+
     protected static String SUCCESS = "Success";
     protected static String FAILED = "Failed";
     private static Long STATUSAPPROVE = 8L;
