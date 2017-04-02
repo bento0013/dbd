@@ -101,9 +101,14 @@ public class UpdateNewBL {
     {     
         for(CmWebsiteDelivery dvr : objs)
         {
+            Criteria criteria = session.createCriteria(DbdDeliveryMap.class);
+            LOG.info("getCMWDDELICODE = "+dvr.getCMWDDELICODE());
+            criteria.add(Restrictions.eq("deliveryId", new Long(dvr.getCMWDDELICODE()) ));
+            List<DbdPaymentMap> lists = criteria.list();
+            LOG.info("DbdDeliveryMap lists size = "+lists.size());
             DbdDeliveryRegistered obj = new DbdDeliveryRegistered();
             obj.setrId(newReg.getRId());    
-            obj.setdId(new Integer(dvr.getCMWDDELICODE()));
+            obj.setdId((lists.size() > 0 ? new Integer(dvr.getCMWDDELICODE()):0));
             obj.setCreateDate(new Date());
             obj.setFlagInsert(1);           
             obj.setDeliveryOther("");
@@ -310,8 +315,8 @@ public class UpdateNewBL {
         criteria.add(Restrictions.eq("wsName", (reg.getWsName() != null?reg.getWsName().toLowerCase().trim():"")));
         criteria.add(Restrictions.ne("statusWebservice", 3L));
         criteria.setMaxResults(1);
-        criteria.addOrder(Order.desc("rId"));
-	List<DbdRegisteredRequest> lists =  criteria.list();
+        criteria.addOrder(Order.desc("oldId"));
+    	List<DbdRegisteredRequest> lists =  criteria.list();
         LOG.info("size = "+lists.size());
         if(lists != null && !lists.isEmpty() && reg.getWsName() != null && !reg.getWsName().trim().isEmpty())
         {
@@ -429,7 +434,12 @@ public class UpdateNewBL {
                             LOG.error(ex.getMessage()
                                     , ex);
                         }
-                        session.update(newReq);
+                        if(in.getCmmain().getCMWWEBEMAIL() != null && !in.getCmmain().getCMWWEBEMAIL().trim().isEmpty())
+                        {
+                            DbdUser user = addUser(result, req, reg, in.getCmmain(), session);
+                            newReq.setUserId(user.getId());
+                        }
+                        session.save(newReq);
                         session.flush();
                         updateEmail(result, newReq, in.getCmmain(), session);
                         updatePhone(result, newReq, in.getCmmain(), session);
@@ -463,5 +473,44 @@ public class UpdateNewBL {
             
         }
         return result;
+    }
+
+    public DbdUser addUser(WsResult result,DbdRegisteredRequest reg, DbdRegReq newReg, CmMain cmMain, Session session)
+    {
+
+        DbdUser obj = new DbdUser();
+        obj.setOldId(newReg.getCmmGenId());
+        obj.setActivation("1");
+        obj.setRegisterDate(new Date());
+        obj.setSendEmail(1);
+        obj.setBlock(0);
+        obj.setDate_insert(new Date());
+        obj.setEmail(cmMain.getCMWWEBEMAIL());
+        obj.setFlag_insert(1);
+        obj.setLastvisitDate(new Date());
+        obj.setOtep("1");
+        obj.setPassword("$2y$10$ze0BcmlL1UzueZTwtf9EG.9MYXbEOSy6jTaX6BrUy3lhkzGhCqPLe");
+        obj.setName(newReg.getNameCommerceTh());
+        obj.setRequireReset(0);
+        obj.setOtpKey("xxx");
+        obj.setPassword_decode("xxx");
+        obj.setResetCount(0);
+        obj.setUsername(cmMain.getCMWWEBEMAIL());
+        obj.setRegId(0);
+        obj.setDate_insert(new Date());
+        obj.setFlag_insert(1);
+        obj.setLastResetTime(new Date());
+
+
+        session.save(obj);
+        session.flush();
+        LOG.info("user Obj ID = "+obj.getId());
+
+        DbdUserGroup userGroup = new DbdUserGroup();
+        userGroup.setUserId(obj.getId());
+        userGroup.setGroupId(2L);
+        session.save(userGroup);
+        session.flush();
+        return obj;
     }
 }

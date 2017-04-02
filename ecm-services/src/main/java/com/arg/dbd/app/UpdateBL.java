@@ -88,7 +88,7 @@ public class UpdateBL {
     {
         Criteria criteria = session.createCriteria(DbdPaymentRegistered.class);        	        
         criteria.add(Restrictions.eq("rId", reg.getRId()));
-	List<DbdPaymentRegistered> lists =  criteria.list();
+        List<DbdPaymentRegistered> lists =  criteria.list();
         if(lists != null && !lists.isEmpty())
         {
             lists.stream().map((req) -> {     

@@ -274,7 +274,7 @@ public class AddBL {
         criteria.add(Restrictions.eq("identificationNumber", reg.getIdentificationNumber()));
         criteria.add(Restrictions.eq("wsName", (reg.getWsName() != null?reg.getWsName().toLowerCase().trim():"")));
         criteria.add(Restrictions.ne("statusWebservice", 3L));
-	List<DbdRegisteredRequest> lists =  criteria.list();
+	    List<DbdRegisteredRequest> lists =  criteria.list();
         LOG.info("---------------->addRegis check lists.isEmpty() "+lists.size());
         if(lists.isEmpty() && reg.getWsName() != null && !reg.getWsName().trim().isEmpty())
         {

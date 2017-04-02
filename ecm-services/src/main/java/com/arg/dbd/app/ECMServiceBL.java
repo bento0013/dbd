@@ -152,10 +152,12 @@ public class ECMServiceBL {
         session.beginTransaction();
         try
         {
-            addMain(in.getCmmain(), "D", session);            
+            DbdRegReq reg = addMain(in.getCmmain(), "D", session);
             session.getTransaction().commit();
             session.beginTransaction();
             LOG.info("Delete Done by CMMGENID = "+in.getCmmain().getCMMGENID());
+            CancelNewBL cancel = new CancelNewBL();
+            WsResult result = cancel.cancelRegis( in, reg, session);
             session.getTransaction().commit();
             messageCode = "1";
         }

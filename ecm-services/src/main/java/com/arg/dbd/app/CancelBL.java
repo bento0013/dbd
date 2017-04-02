@@ -38,7 +38,7 @@ public class CancelBL {
         criteria.add(Restrictions.eq("identificationNumber", in.getCmmain().getCMMOWNID()));
         criteria.add(Restrictions.eq("wsName", (reg.getWsName() != null?reg.getWsName().toLowerCase().trim():"")));
         criteria.add(Restrictions.ne("statusWebservice", 3L));
-	List<DbdRegisteredRequest> lists =  criteria.list();
+	    List<DbdRegisteredRequest> lists =  criteria.list();
         LOG.info("sizes = "+lists.size());
         if(lists != null && !lists.isEmpty())
         {
