@@ -1,0 +1,68 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.hbm2ddl.auto">update</property>        
+        <!--property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property-->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.username">dbdwebservice</property>
+        <property name="hibernate.connection.password">webservice1234!</property>
+        <!--property name="hibernate.connection.url">jdbc:mysql://164.115.40.70:3306/dbd</property-->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dbd</property>
+        <property name="hibernate.connection.useUnicode">true</property>
+        <property name="hibernate.connection.characterEncoding">UTF-8</property>
+        <property name="hibernate.connection.charSet">UTF-8</property>  
+        <property name="show_sql">true</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+
+        <mapping class="com.baa.dbd.model.DbdRegReq"/>
+        <mapping class="com.baa.dbd.model.DbdRegDvrReq"/>
+        <mapping class="com.baa.dbd.model.DbdRegOrdReq"/>
+        <mapping class="com.baa.dbd.model.DbdRegPayReq"/>
+        <mapping class="com.baa.dbd.model.DbdRegRulReq"/>
+        <mapping class="com.baa.dbd.model.DbdRegObjReq"/>
+        <mapping class="com.baa.dbd.model.reg.DbdDeliveryRegistered"/>
+        <mapping class="com.baa.dbd.model.reg.DbdGroupWebsiteRegistered"/>
+        <mapping class="com.baa.dbd.model.reg.DbdPaymentRegistered"/>
+        <mapping class="com.baa.dbd.model.reg.DbdPurchaseRegistered"/>
+        <mapping class="com.baa.dbd.model.reg.DbdRegisteredEmail"/>
+        <mapping class="com.baa.dbd.model.reg.DbdRegisteredPhone"/>
+        <mapping class="com.baa.dbd.model.reg.DbdRegisteredRequest"/>
+        <mapping class="com.baa.dbd.model.reg.DbdUser"/>
+        <mapping class="com.baa.dbd.model.reg.DbdUserGroup"/>        
+        <mapping class="com.baa.dbd.model.reg.DbdDeliveryMap"/>
+        <mapping class="com.baa.dbd.model.reg.DbdPaymentMap"/>
+        <mapping class="com.baa.dbd.model.reg.DbdPurchaseMap"/>
+        <mapping class="com.baa.dbd.model.reg.DbdWebsiteMap"/>        
+        <mapping class="com.baa.dbd.model.reg.RegOffice"/>  
+        <mapping class="com.baa.dbd.model.reg.DbdGroupWebsiteMap"/>  
+        
+        <!--mapping class="org.appfuse.model.User"/>
+        <mapping class="org.appfuse.model.Role"/>
+
+        <mapping resource="com/affinity/crm/model/WorkActivityReport.hbm.xml"/>
+        <mapping resource="com/affinity/crm/model/VinAutoComplete.hbm.xml"/>
+
+        <mapping class="com.affinity.crm.model.Dealer"/>
+        <mapping class="com.affinity.crm.model.Case"/>
+        <mapping class="com.affinity.crm.model.Customer"/>
+        <mapping class="com.affinity.crm.model.CustomerInfoHistory"/>
+        <mapping class="com.affinity.crm.model.Lookup"/-->
+        <!--<mapping class="com.affinity.crm.model.forteo.Doctor"/>-->
+        <!--<mapping class="com.affinity.crm.model.forteo.Hospital"/>-->
+        <!--mapping class="com.affinity.crm.model.Attachment"/>
+        <mapping class="com.affinity.crm.model.WorkLog"/>
+        <mapping class="com.affinity.crm.model.WorkActivity"/>
+        <mapping class="com.affinity.crm.model.Dealer"/-->
+        <!--<mapping class="com.affinity.cc.crm.model.Task"/>-->
+        <!--<mapping class="com.affinity.crm.model.Payment"/>-->
+        <!--mapping class="com.affinity.crm.model.Province"/>
+        <mapping class="com.affinity.crm.model.District"/>
+        <mapping class="com.affinity.crm.model.SubDistrict"/-->
+    </session-factory>
+</hibernate-configuration>

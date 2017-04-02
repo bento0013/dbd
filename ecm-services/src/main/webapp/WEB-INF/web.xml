@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--// $Id // -->
+
+<web-app id="starter" version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <display-name>BBA ECM WebServices</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:applicationContext*.xml,WEB-INF/webservice-beans.xml</param-value>
+    </context-param>  
+
+    <!-- Filters -->
+    <!--filter>
+        <filter-name>action2-cleanup</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class>
+    </filter>
+    <filter>
+        <filter-name>action2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>   
+    <listener>
+        <listener-class>com.arg.dbd.app.messaging.listener.LockListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.arg.dbd.app.messaging.listener.BackendListener</listener-class>
+    </listener-->
+    
+    <servlet>
+        <servlet-name>CXFServlet</servlet-name>
+        <servlet-class>
+            org.apache.cxf.transport.servlet.CXFServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CXFServlet</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+  
+    <!--filter-mapping>
+        <filter-name>action2-cleanup</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>   
+   
+    <filter-mapping>
+        <filter-name>action2</filter-name>
+        <url-pattern>/public/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>action2</filter-name>        
+        <url-pattern>/secure/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>action2</filter-name>
+        <url-pattern>/secures/*</url-pattern>
+    </filter-mapping--> 
+
+    <mime-mapping>
+        <extension>ico</extension>
+        <mime-type>image/x-icon</mime-type>
+    </mime-mapping>
+
+
+    <!--Listeners -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>     
+    <!--scription>
+            Used to cleanup when a session is destroyed
+        </description>
+        <display-name>ZK Session cleaner</display-name>
+        <listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
+    </listener-->
+
+
+    <!-- Servlets -->
+    <!--servlet>
+        <description>
+            The ZK loader for ZUML pages
+        </description>
+        <servlet-name>zkLoader</servlet-name>
+        <servlet-class>
+            org.zkoss.zk.ui.http.DHtmlLayoutServlet
+        </servlet-class>
+        <init-param>
+            <param-name>update-uri</param-name>
+            <param-value>/zkau</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <description>
+            The asynchronous update engine for ZK
+        </description>
+        <servlet-name>auEngine</servlet-name>      
+        <servlet-class>           
+            org.zkoss.zk.au.http.DHtmlUpdateServlet
+        </servlet-class>
+    </servlet-->
+
+    <!--  mapping -->
+    <!--servlet-mapping>
+        <servlet-name>zkLoader</servlet-name>
+        <url-pattern>*.zul</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>zkLoader</servlet-name>
+        <url-pattern>*.zhtml</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>auEngine</servlet-name>
+        <url-pattern>/zkau/*</url-pattern>
+    </servlet-mapping-->
+       
+    <!-- Welcome file lists -->
+    <welcome-file-list>        
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <!--error-page> 
+        <error-code>400</error-code> 
+        <location>/errorpage.zul</location> 
+    </error-page>
+    
+    <error-page> 
+        <error-code>401</error-code> 
+        <location>/errorpage.zul</location> 
+    </error-page>
+    
+    <error-page> 
+        <error-code>404</error-code>         
+        <location>/errorpage.zul</location> 
+    </error-page>
+    
+    <error-page> 
+        <error-code>500</error-code> 
+        <location>/errorpage.zul</location> 
+    </error-page>
+    
+    <error-page> 
+        <error-code>503</error-code> 
+        <location>/errorpage.zul</location> 
+    </error-page-->
+
+    <resource-ref>
+        <res-ref-name>jdbc/ECM_DB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>   
+    
+
+    <session-config>
+          <session-timeout>30</session-timeout>
+    </session-config>
+    
+</web-app>
