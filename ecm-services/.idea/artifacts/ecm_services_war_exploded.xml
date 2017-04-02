@@ -1,0 +1,67 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ecm-services:war exploded">
+    <output-path>$PROJECT_DIR$/target/ecm-services</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ecm-services" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:3.0.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-asm:3.0.5.RELEASE" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.1" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.16" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:3.0.5.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.0.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:3.0.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.0.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.0.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-core:2.3.3" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-api:2.3.3" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-common-utilities:2.3.3" />
+          <element id="library" level="project" name="Maven: org.codehaus.woodstox:woodstox-core-asl:4.0.8" />
+          <element id="library" level="project" name="Maven: org.codehaus.woodstox:stax2-api:3.0.2" />
+          <element id="library" level="project" name="Maven: org.apache.neethi:neethi:2.0.4" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-common-schemas:2.3.3" />
+          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:2.1.13" />
+          <element id="library" level="project" name="Maven: org.apache.ws.commons.schema:XmlSchema:1.4.7" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-javamail_1.4_spec:1.7.1" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-transports-http:2.3.3" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-transports-common:2.3.3" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-bindings-soap:2.3.3" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-tools-common:2.3.3" />
+          <element id="library" level="project" name="Maven: wsdl4j:wsdl4j:1.6.2" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-databinding-jaxb:2.3.3" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-frontend-jaxws:2.3.3" />
+          <element id="library" level="project" name="Maven: xml-resolver:xml-resolver:1.2" />
+          <element id="library" level="project" name="Maven: asm:asm:3.3" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-bindings-xml:2.3.3" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-frontend-simple:2.3.3" />
+          <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-ws-addr:2.3.3" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.2" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.1.0.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.20.0-GA" />
+          <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1" />
+          <element id="library" level="project" name="Maven: org.jboss:jandex:2.0.0.Final" />
+          <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.3.0" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
+          <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-c3p0:5.1.0.Final" />
+          <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.2.1" />
+          <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.3.4" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.6" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/ecm-services/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="ecm-services/web/Web" />
+    </root>
+  </artifact>
+</component>
