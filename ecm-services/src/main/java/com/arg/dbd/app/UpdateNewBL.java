@@ -333,6 +333,7 @@ public class UpdateNewBL {
                         newReq.setRequestNo(reg.getReqNo());
                         newReq.setDateRegister(reg.getDateReg());
                         newReq.setRegisteredOfficeId(strToLong(reg.getRegOfficeId()));
+                        newReq.setTypeRegister(1);
                         if(reg.getRegOfficeId() != null)
                         {
                             RegOffice regOffice = session.get(RegOffice.class,strToLong(reg.getRegOfficeId()));

@@ -87,6 +87,7 @@ public class DbdRegisteredRequest extends AbstractPojo{
     private Date createDate;
     private Date updateDate;
     private Date dateEdit;
+    private Integer typeRegister;
  
 
 
@@ -679,6 +680,15 @@ public class DbdRegisteredRequest extends AbstractPojo{
 
     public void setRegisteredOfficeNameEn(String registeredOfficeNameEn) {
         this.registeredOfficeNameEn = registeredOfficeNameEn;
+    }
+
+    @Column(name = "TYPE_REGISTER", unique = false ,columnDefinition = "int", nullable = true)
+    public Integer getTypeRegister() {
+        return typeRegister;
+    }
+
+    public void setTypeRegister(Integer typeRegister) {
+        this.typeRegister = typeRegister;
     }
     
     

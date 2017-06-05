@@ -391,6 +391,7 @@ public class CancelNewBL {
             req.setRequestNo(reg.getReqNo());
             req.setDateRegister(reg.getDateReg());
             req.setRegisteredOfficeId(strToLong(reg.getRegOfficeId()));
+            req.setTypeRegister(1);
             if(reg.getRegOfficeId() != null)
             { 
                 RegOffice regOffice = session.get(RegOffice.class,strToLong(reg.getRegOfficeId()));
